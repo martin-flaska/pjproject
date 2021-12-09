@@ -123,7 +123,9 @@ install:
 	mkdir -p $(DESTDIR)$(libdir)/
 	cp -af $(APP_LIB_FILES) $(DESTDIR)$(libdir)/
 	if [ "$(PJ_EXCLUDE_PJSUA2)x" = "x" ] ; then \
-	    cp -af $(PJ_DIR)/pjsip/lib/libpjsua2-$(LIB_SUFFIX) $(DESTDIR)$(libdir)/; \
+		cp -af $(PJ_DIR)/pjsip/lib/libpjsua2-$(LIB_SUFFIX) \
+			$(PJ_DIR)/pjsip/lib/libpjsua2.$(SHLIB_SUFFIX).$(PJ_VERSION_MAJOR) $(PJ_DIR)/pjsip/lib/libpjsua2.$(SHLIB_SUFFIX) \
+			$(DESTDIR)$(libdir)/; \
 	fi
 	mkdir -p $(DESTDIR)$(includedir)/
 	for d in pjlib pjlib-util pjnath pjmedia pjsip; do \
